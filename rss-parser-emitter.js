@@ -5,11 +5,25 @@ var Events = require('events');
 
 module.exports = class RssParserEmitter extends Events {
 
-	constructor(options) {
+	constructor() {
 
-		super(options);
+		super();
 
-		let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, eventName = 'rss', feeds, interval = 5} = options;
+        let options = {};
+
+        if (arguments.length == 1) {
+            if (arguments[0].feeds == undefined) {
+                options = {feeds:arguments[0]}
+            }
+            else {
+                options = arguments[0];
+            }
+        }
+        else {
+            throw new Error('Invalid arguments');
+        }
+
+        let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, eventName = 'rss', feeds, interval = 5} = options;
 
 		if (feeds == undefined) {
 			throw new Error(`Need to specify RSS feeds.`);
