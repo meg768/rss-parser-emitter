@@ -26,7 +26,7 @@ class App {
 			transformRSS:transformRSS,
 
 			// Optional. Specifies event name, default is 'rss'
-			event: 'news',
+			eventName: 'news',
 
 			// Optional. Specifies poll interval in minutes. Default is 5.
 			interval:1,

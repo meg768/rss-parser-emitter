@@ -9,14 +9,14 @@ module.exports = class RssParserEmitter extends Events {
 
 		super(options);
 
-		let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, event = 'rss', feeds, interval = 5} = options;
+		let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, eventName = 'rss', feeds, interval = 5} = options;
 
 		if (feeds == undefined) {
 			throw new Error(`Need to specify RSS feeds.`);
 		}
 		
 		this.debug = () => {};
-		this.event = event;
+		this.eventName = eventName;
 		this.feeds = feeds;
 		this.interval = interval;
 		this.log = log;
@@ -88,7 +88,7 @@ module.exports = class RssParserEmitter extends Events {
 			});
 			
 			for (let headline of headlines) {
-				this.emit(this.event, headline.name, this.transformRSS(headline.rss));
+				this.emit(this.eventName, headline.name, this.transformRSS(headline.rss));
 			}
 
 		}
