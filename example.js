@@ -4,13 +4,6 @@ class App {
 
 	run() {
 
-		// Function for transforming RSS from the rss-parser (optional)
-		let transformRSS = (rss) => {
-			let title = rss.title;
-			let date = rss.isoDate;
-			return {date:date, title:title};
-		}
-		
 		let options = {
 			// Required. An object with feed name and URL
 			feeds: {
@@ -22,8 +15,12 @@ class App {
 			// Optional. Default set to true. No need to call start()
 			autostart: false,
 
-			// Optional. Transform RSS JSON to custom format
-			transformRSS:transformRSS,
+			// Optional. Transform RSS to custom JSON format
+			transformRSS:(rss) => {
+                let title = rss.title;
+                let date = rss.isoDate;
+                return {date:date, title:title};    
+            },
 
 			// Optional. Specifies event name, default is 'rss'
 			eventName: 'news',
