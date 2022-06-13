@@ -4,25 +4,19 @@ class App {
 
 	run() {
 
-		// Function for transforming RSS from the rss-parser
+		// Function for transforming RSS from the rss-parser (optional)
 		let transformRSS = (rss) => {
 			let title = rss.title;
-			let link = rss.link;
 			let date = rss.isoDate;
-			return {date:date, title:title, link:link};
+			return {date:date, title:title};
 		}
 		
 		let options = {
 			// Required. An object with feed name and URL
 			feeds: {
-				"Aftonbladet":"https://rss.aftonbladet.se/rss2/small/pages/sections/senastenytt",
-				"Dagens Industri":"https://digital.di.se/rss",
-				"Google":"https://news.google.com/rss?hl=sv&gl=SE&ceid=SE:sv",
-				"SvD":"http://www.svd.se/?service=rss",
-				"Sveriges Radio":"http://api.sr.se/api/rss/program/83?format=145",
-				"Expressen":"https://feeds.expressen.se/nyheter",
-				"Sydsvenskan":"http://www.sydsvenskan.se/rss.xml?type=section&id=1594",
-				"IDG":"http://feeds.idg.se/idg/vzzs"
+                "BBC": "http://feeds.bbci.co.uk/news/uk/rss.xml#",
+                "CNN": "http://rss.cnn.com/rss/edition.rss",
+                "Google": "https://news.google.com/rss?gl=US&ceid=US:en&hl=en-US"
 			},
 
 			// Optional. Default set to true. No need to call start()

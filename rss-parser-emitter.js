@@ -40,6 +40,11 @@ module.exports = class RssParserEmitter extends Events {
 		let parser = new Parser();
 		let result = await parser.parseURL(url);
 
+        // Only use RSS with isoDate
+        result.items = result.items.filter((item) => {
+            return item.isoDate != undefined;
+        });
+
 		for (let item of result.items) {
 			item.pubDate = new Date(item.pubDate); 
 			item.isoDate = new Date(item.isoDate); 
