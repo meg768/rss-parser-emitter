@@ -27,6 +27,8 @@
   },
   "devDependencies": {},
   "keywords": [
-    "rss-parser"
+    "rss-parser",
+    "rss reader",
+    "rss"
   ]
 }
