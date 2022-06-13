@@ -8,9 +8,8 @@ class App {
 		let transformRSS = (rss) => {
 			let title = rss.title;
 			let link = rss.link;
-			let content = rss.contentSnippet;
 			let date = rss.isoDate;
-			return {date:date, title:title, content:content, link:link};
+			return {date:date, title:title, link:link};
 		}
 		
 		let options = {
