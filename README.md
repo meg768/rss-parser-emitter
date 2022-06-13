@@ -1,6 +1,6 @@
-# RSS Parser Emitter
+# rss-parser-emitter
 
-An emitter based on the rss-parser module.
+An emitter based on the [rss-parser](https://www.npmjs.com/package/rss-parser). It emits events when RSS feeds publish new information.
 
 ## Installation
 
