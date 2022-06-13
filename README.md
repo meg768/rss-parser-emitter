@@ -10,7 +10,7 @@ npm install rss-parser-emitter --save
 
 ## Example
 
-Simple example on how to use it.
+A simple example on how to use it.
 
 ````javascript
 class App {
