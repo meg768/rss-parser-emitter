@@ -93,7 +93,6 @@ module.exports = class RssParserEmitter extends Events {
 
 	}
 
-
 	async loop() {
 		try {
 			await this.fetch();

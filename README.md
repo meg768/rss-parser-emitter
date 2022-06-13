@@ -15,7 +15,7 @@ class App {
 
     run() {
 
-        // Function for transforming RSS from the rss-parser
+        // Optional function for transforming RSS from the rss-parser
         let transformRSS = (rss) => {
             let title = rss.title;
             let link = rss.link;
