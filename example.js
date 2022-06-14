@@ -34,7 +34,7 @@ class App {
             debug:console.debug
         };
 
-        let RSS = require('./rss-parser-emitter');
+        let RSS = require('./rss-parser-events');
         let rss = new RSS(feeds, options);
 
         rss.on('news', (name, json) => {

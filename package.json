@@ -1,11 +1,11 @@
 {
-  "name": "rss-parser-emitter",
+  "name": "rss-parser-events",
   "version": "1.0.8",
-  "description": "An emitter for rss-parser",
-  "main": "rss-parser-emitter.js",
+  "description": "An event emitter for rss-parser",
+  "main": "rss-parser-events.js",
   "scripts": {
-    "goto-github": "open https://github.com/meg768/rss-parser-emitter",
-    "goto-npm": "open https://www.npmjs.com/package/rss-parser-emitter",
+    "goto-github": "open https://github.com/meg768/rss-parser-events",
+    "goto-npm": "open https://www.npmjs.com/package/rss-parser-events",
     "git-commit": "git add -A && git commit -m '-' && git push",
     "git-pull": "git pull",
     "git-revert": "git reset --hard HEAD",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meg768/rss-parser-emitter.git"
+    "url": "git+https://github.com/meg768/rss-parser-events.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/meg768/rss-parser-emitter/issues"
+    "url": "https://github.com/meg768/rss-parser-events/issues"
   },
-  "homepage": "https://github.com/meg768/rss-parser-emitter#readme",
+  "homepage": "https://github.com/meg768/rss-parser-events#readme",
   "dependencies": {
     "rss-parser": "^3.12.0"
   },

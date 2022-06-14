@@ -3,7 +3,7 @@
 class App {
 
     run() {
-        let RSS = require('./rss-parser-emitter');
+        let RSS = require('./rss-parser-events');
         let rss = new RSS({
             "BBC": "http://feeds.bbci.co.uk/news/uk/rss.xml#",
             "CNN": "http://rss.cnn.com/rss/edition.rss",
