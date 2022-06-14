@@ -3,7 +3,7 @@
 var Parser = require('rss-parser');
 var Events = require('events');
 
-module.exports = class RssParserEmitter extends Events {
+module.exports = class RssParserEvents extends Events {
 
 	constructor() {
 
