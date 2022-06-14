@@ -9,21 +9,25 @@ module.exports = class RssParserEmitter extends Events {
 
 		super();
 
-        let options = {};
+		let options = {};
 
-        if (arguments.length == 1) {
-            if (arguments[0].feeds == undefined) {
-                options = {feeds:arguments[0]}
-            }
-            else {
-                options = arguments[0];
-            }
-        }
-        else {
-            throw new Error('Invalid arguments');
-        }
+		switch (arguments.length) {
+			case 1: {
+				options = arguments[0].feeds != undefined ? {feeds:arguments[0]} : arguments[0];
+				break;
+			}
 
-        let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, eventName = 'rss', feeds, interval = 5} = options;
+			case 2: {
+				options = {feeds:arguments[0], ...arguments[1]}; 
+				break;
+			}
+
+			default: {
+				throw new Error('Invalid arguments');
+			}
+		}
+
+		let {debug = false, log = console.log, transformRSS = (item) => item, autostart = true, eventName = 'rss', feeds, interval = 5} = options;
 
 		if (feeds == undefined) {
 			throw new Error(`Need to specify RSS feeds.`);
@@ -47,19 +51,19 @@ module.exports = class RssParserEmitter extends Events {
 			this.start();
 	}
 
-    async fetchURL(url) {
+	async fetchURL(url) {
 
 		this.debug(`Fetching ${url}...`);
 
 		let parser = new Parser();
 		let result = await parser.parseURL(url);
 
-        // Only use RSS with isoDate and pubDate
-        result.items = result.items.filter((item) => {
-            return item.isoDate != undefined && item.pubDate != undefined;
-        });
+		// Only use RSS with isoDate and pubDate
+		result.items = result.items.filter((item) => {
+			return item.isoDate != undefined && item.pubDate != undefined;
+		});
 
-        // Convert do date
+		// Convert do date
 		for (let item of result.items) {
 			item.pubDate = new Date(item.pubDate); 
 			item.isoDate = new Date(item.isoDate); 
@@ -71,7 +75,7 @@ module.exports = class RssParserEmitter extends Events {
 		});
 
 		return result.items[0];
-    }
+	}
 
 
 	async fetch() {
@@ -108,7 +112,6 @@ module.exports = class RssParserEmitter extends Events {
 		}
 		catch(error) {
 			this.log(error);
-
 		}
 
 	}

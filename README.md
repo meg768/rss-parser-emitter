@@ -43,22 +43,21 @@ class App {
 
     run() {
 
-        let options = {
-            // Required. An object with feed name and URL
-            feeds: {
-                "BBC": "http://feeds.bbci.co.uk/news/uk/rss.xml#",
-                "CNN": "http://rss.cnn.com/rss/edition.rss",
-                "Google": "https://news.google.com/rss?gl=US&ceid=US:en&hl=en-US"
-            },
+        let feeds = {
+            "BBC": "http://feeds.bbci.co.uk/news/uk/rss.xml#",
+            "CNN": "http://rss.cnn.com/rss/edition.rss",
+            "Google": "https://news.google.com/rss?gl=US&ceid=US:en&hl=en-US"
+        };
 
+        let options = {
             // Optional. Default set to true. No need to call start()
             autostart: false,
 
-            // Optional. Function to transform RSS into custom format
+            // Optional. Transform RSS to custom JSON format
             transformRSS:(rss) => {
                 let title = rss.title;
                 let date = rss.isoDate;
-                return {date:date, title:title};    
+                return {date:date, title:title};
             },
 
             // Optional. Specifies event name, default is 'rss'
@@ -74,16 +73,16 @@ class App {
             debug:console.debug
         };
 
-        let RSS = require('rss-parser-emitter');
-        let rss = new RSS(options);
+        let RSS = require('./rss-parser-emitter');
+        let rss = new RSS(feeds, options);
 
         rss.on('news', (name, json) => {
             console.log(`${name}: ${JSON.stringify(json, null, '  ')}`);
         });
-        
+
         // Start polling
         rss.start();
-        
+
         // Stop after a while
         setTimeout(() => {rss.stop()}, 10000);
     }
