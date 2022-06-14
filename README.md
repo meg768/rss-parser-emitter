@@ -8,7 +8,7 @@ An emitter based on the [rss-parser](https://www.npmjs.com/package/rss-parser) m
 npm install rss-parser-emitter --save
 ````
 
-## Basic Example
+## Simple Example
 
 Basic example on how to use it.
 
