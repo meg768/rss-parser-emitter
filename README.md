@@ -16,7 +16,7 @@ Basic example on how to use it.
 class App {
 
     run() {
-        let RSS = require('rss-parser-emitter');
+        let RSS = require('rss-parser-events');
         let rss = new RSS({
             "BBC": "http://feeds.bbci.co.uk/news/uk/rss.xml#",
             "CNN": "http://rss.cnn.com/rss/edition.rss",
@@ -73,7 +73,7 @@ class App {
             debug:console.debug
         };
 
-        let RSS = require('rss-parser-emitter');
+        let RSS = require('rss-parser-events');
         let rss = new RSS(feeds, options);
 
         rss.on('news', (name, json) => {
