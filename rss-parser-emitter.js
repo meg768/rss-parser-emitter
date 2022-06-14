@@ -13,7 +13,7 @@ module.exports = class RssParserEmitter extends Events {
 
 		switch (arguments.length) {
 			case 1: {
-				options = arguments[0].feeds != undefined ? {feeds:arguments[0]} : arguments[0];
+				options = arguments[0].feeds == undefined ? {feeds:arguments[0]} : arguments[0];
 				break;
 			}
 
