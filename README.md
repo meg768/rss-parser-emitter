@@ -1,11 +1,11 @@
-# rss-parser-emitter
+# rss-parser-events
 
 An event emitter based on the [rss-parser](https://www.npmjs.com/package/rss-parser) module. It emits events when RSS feeds publish new information.
 
 ## Installation
 
 ````bash
-npm install rss-parser-emitter --save
+npm install rss-parser-events --save
 ````
 
 ## Simple Example
